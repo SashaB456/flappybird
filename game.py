@@ -52,11 +52,11 @@ while game == True:
         tube1.reset()
         tube2.update2()
         tube2.reset()
-    if pygame.sprite.collide_rect(bird, tube1) or pygame.sprite.collide_rect(bird, tube2):
-        finish = True
-        pygame.font.init()
-        font1 = pygame.font.Font(None, 60)
-        text1 = font1.render('Ти програв!', True, (255, 0, 0))
-        window.blit(text1, (WIDTH/2, HEIGHT/2))
+        if pygame.sprite.collide_rect(bird, tube1) or pygame.sprite.collide_rect(bird, tube2) or bird.rect.y < 0 or bird.rect.y > HEIGHT:
+            finish = True
+            pygame.font.init()
+            font1 = pygame.font.Font(None, 60)
+            text1 = font1.render('Ти програв!', True, (255, 0, 0))
+            window.blit(text1, (WIDTH/2, HEIGHT/2))
     pygame.display.update()
     clock.tick(60)
